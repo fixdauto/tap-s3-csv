@@ -16,6 +16,7 @@ CONFIG_CONTRACT = Schema({
         Optional('search_prefix'): str,
         Optional('field_names'): [str],
         Optional('worksheet_name'): str,
+        Optional('skip_lines'): int,
         Optional('schema_overrides'): {
             str: {
                 Required('type'): Any(str, [str]),

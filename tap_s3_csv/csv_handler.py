@@ -2,6 +2,8 @@ import codecs
 import csv
 import re
 
+from tap_s3_csv.logger import LOGGER as logger
+
 
 def generator_wrapper(reader):
     to_return = {}
@@ -35,6 +37,11 @@ def get_row_iterator(table_spec, file_handle):
 
     if 'field_names' in table_spec:
         field_names = table_spec['field_names']
+
+    if 'skip_lines' in table_spec:
+        logger.info(f"skipping {table_spec['skip_lines']} line(s) from beginning of file")
+        for i in range(table_spec['skip_lines']):
+            next(file_stream)
 
     reader = csv.DictReader(file_stream, fieldnames=field_names)
 
