@@ -14,6 +14,7 @@ setup(name='tap-s3-csv',
           'singer-python==1.5.0',
           'voluptuous==0.10.5',
           'xlrd==1.0.0',
+          'pytz==2021.1',
       ],
       entry_points='''
           [console_scripts]
