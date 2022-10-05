@@ -26,3 +26,8 @@ def get_row_iterator(config, table_spec, s3_path):
     elif table_spec['format'] == 'excel':
         return tap_s3_csv.excel_handler.get_row_iterator(
             table_spec, file_handle)
+
+    elif table_spec['format'] == 'json':
+        return tap_s3_csv.json_handler.get_row_iterator(
+            table_spec,file_handle)
+    
