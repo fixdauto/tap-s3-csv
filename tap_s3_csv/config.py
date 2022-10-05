@@ -12,7 +12,7 @@ CONFIG_CONTRACT = Schema({
         Required('name'): str,
         Required('pattern'): str,
         Required('key_properties'): [str],
-        Required('format'): Any('csv', 'excel'),
+        Required('format'): Any('csv', 'excel', 'json'),
         Optional('search_prefix'): str,
         Optional('field_names'): [str],
         Optional('worksheet_name'): str,
