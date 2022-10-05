@@ -7,3 +7,4 @@ def get_row_iterator(table_spec,file_handle):
         json_line = json.loads(line)
         keys = list(json_line['subject'].keys())
         yield json_line['subject'][keys[0]]
+        
