@@ -1,7 +1,7 @@
 import boto3
 import tap_s3_csv.csv_handler
 import tap_s3_csv.excel_handler
-
+import tap_s3_csv.json_handler
 
 def get_file_handle(config, s3_path):
     bucket = config['bucket']
