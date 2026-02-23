@@ -103,7 +103,7 @@ def list_files_in_bucket(config, bucket, max_results, search_prefix=None):
 
     result = s3_client.list_objects_v2(**args)
 
-    s3_objects += result['Contents']
+    s3_objects += result.get('Contents', [])
     next_continuation_token = result.get('NextContinuationToken')
 
     while next_continuation_token is not None:
@@ -115,7 +115,7 @@ def list_files_in_bucket(config, bucket, max_results, search_prefix=None):
 
         result = s3_client.list_objects_v2(**continuation_args)
 
-        s3_objects += result['Contents']
+        s3_objects += result.get('Contents', [])
         next_continuation_token = result.get('NextContinuationToken')
 
     logger.info("Found {} files.".format(len(s3_objects)))
